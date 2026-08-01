@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPIDEY SENSE -- Sign In</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+  .login-wrap {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .login-card {
+    width: 100%;
+    max-width: 320px;
+    background: var(--bg-panel-2, #1c1830);
+    border: 3px solid #000;
+    border-radius: 16px;
+    box-shadow: var(--comic-shadow);
+    padding: 26px 22px;
+    text-align: center;
+  }
+  .login-title {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    color: var(--gold);
+    text-shadow: 2px 2px 0 #000;
+    margin: 0 0 4px;
+  }
+  .login-sub {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    color: var(--ink-dim, #b9b3c9);
+    font-size: 0.85rem;
+    margin: 0 0 20px;
+  }
+  .login-field {
+    text-align: left;
+    margin-bottom: 14px;
+  }
+  .login-field label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .login-field input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 2px solid var(--line, #3a3555);
+    background: #0e0c18;
+    color: var(--ink, #f4f0e6);
+    font-family: 'Barlow', sans-serif;
+    font-size: 1rem;
+  }
+  .login-field input:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .login-error {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    color: var(--red);
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+  .login-submit {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body class="page-game">
+
+<canvas id="web-bg"></canvas>
+
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="login-title">SPIDEY SENSE</div>
+    <div class="login-sub">Game 3 preview &mdash; sign in to continue</div>
+
+    {% if error %}
+      <div class="login-error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('login') }}">
+      <div class="login-field">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" autocapitalize="off" required>
+      </div>
+      <div class="login-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn-complete login-submit">SUIT UP</button>
+    </form>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/spiderweb.js') }}"></script>
+</body>
+</html>

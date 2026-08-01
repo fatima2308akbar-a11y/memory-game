@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPIDEY SENSE -- Web Secured</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+  .done-wrap { min-height: 100dvh; display: flex; align-items: center; justify-content: center; padding: 20px; text-align: center; }
+  .done-title { font-family: 'Bangers', cursive; font-size: 2.2rem; color: var(--gold); text-shadow: 2px 2px 0 #000; margin-bottom: 8px; }
+  .done-sub { font-family: 'Barlow', sans-serif; font-weight: 600; color: var(--ink-dim, #b9b3c9); max-width: 320px; margin: 0 auto 20px; }
+  .done-link { font-family: 'Barlow', sans-serif; font-weight: 700; color: var(--gold); text-decoration: underline; }
+</style>
+</head>
+<body class="page-game">
+<canvas id="web-bg"></canvas>
+<div class="done-wrap">
+  <div>
+    <div class="done-title">WEB SECURED!</div>
+    <p class="done-sub">You cleared Game 3. This standalone deploy only has this one game, so there's no next challenge to chain into.</p>
+    <a class="done-link" href="{{ url_for('game3') }}">Play again</a>
+  </div>
+</div>
+<script src="{{ url_for('static', filename='js/spiderweb.js') }}"></script>
+</body>
+</html>
